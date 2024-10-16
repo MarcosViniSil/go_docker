@@ -1,0 +1,27 @@
+
+services:
+  app:
+    image: maacosv/teste-deploy:1.1 
+    ports:
+      - "8080:8080" 
+    depends_on:
+      - mysql 
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: teste_senha
+      MYSQL_DATABASE: teste_banco
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: teste_senha
+      MYSQL_DATABASE: teste_banco
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
