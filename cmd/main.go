@@ -150,25 +150,28 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
+func loadPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Welcome to the User Management System!")
+}
+
 var db *sql.DB
 
 func init() {
 
 	dsn := "root:teste_senha@tcp(mysql:3306)/teste_banco"
 	var err error
-	db, err = sql.Open("mysql", dsn) 
+	db, err = sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 10; i++ {
 		if err := db.Ping(); err == nil {
 			fmt.Println("Conexão ao MySQL bem-sucedida!")
 			return
 		}
 		fmt.Println("Tentando conectar ao MySQL...")
-		time.Sleep(5 * time.Second) 
+		time.Sleep(5 * time.Second)
 	}
 
 	log.Fatal("Não foi possível conectar ao MySQL após várias tentativas")
@@ -179,5 +182,6 @@ func main() {
 	http.HandleFunc("/users/update", Update)
 	http.HandleFunc("/users/delete", Delete)
 	http.HandleFunc("/users/read", Read)
+	http.HandleFunc("/", loadPage)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
