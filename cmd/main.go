@@ -158,7 +158,7 @@ var db *sql.DB
 
 func init() {
 
-	dsn := "root:teste_senha@tcp(mysql:3306)/teste_banco"
+	dsn := "root:teste_senha@tcp(127.0.0.1:3306)/teste_banco"
 	var err error
 	db, err = sql.Open("mysql", dsn)
 	if err != nil {
