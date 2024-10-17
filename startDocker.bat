@@ -11,4 +11,5 @@ if exist "%PASTA%" (
     echo Pasta %PASTA% não encontrada.
 )
 
-docker-compose up -d
+
+docker-compose up --build
