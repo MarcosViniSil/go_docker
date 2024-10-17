@@ -162,7 +162,7 @@ func init() {
 	}
 
 	
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 20; i++ {
 		if err := db.Ping(); err == nil {
 			fmt.Println("Conexão ao MySQL bem-sucedida!")
 			return
