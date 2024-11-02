@@ -57,7 +57,7 @@ docker push usernamedockerhub/repository:latest
 ## Atualizar Docker (imagem) - local
  
 ```shell
-docker build -t usernamedockerhub/repository:latest
+docker build -t usernamedockerhub/repository:latest .
 ```
 
 ## Construir docker compose novamente
