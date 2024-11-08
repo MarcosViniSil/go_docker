@@ -75,11 +75,11 @@ docker-compose -f docker-compose.dev.yaml up
 ## Go local, sem container
  
 ```go
-conexão sql = dsn := "root:teste_senha@tcp(127.0.0.1:3306)/teste_banco"
+root:password@tcp(127.0.0.1:3306)/jumpStart?parseTime=true
 ```
 
 ## Go Container, imagem
  
 ```go
-dsn := "root:teste_senha@tcp(mysql:3306)/teste_banco"
+root:password@tcp(mysql:3306)/jumpStart?parseTime=true
 ```
